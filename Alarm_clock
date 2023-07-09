@@ -1,0 +1,81 @@
+from tkinter import *
+from tkinter import messagebox
+import datetime
+import time
+
+window = Tk()
+window.title("Alarm Clock")
+
+def set_alarm():
+    alarm_time = entry.get()
+    try:
+        datetime.datetime.strptime(alarm_time, "%H:%M")
+    except ValueError:
+        messagebox.showerror("Error", "Invalid time format! Please use HH:MM format.")
+        return
+    
+    while True:
+        current_time = time.strftime("%H:%M")
+        if current_time == alarm_time:
+            messagebox.showinfo("Alarm", "Wake up!")
+            break
+        window.update()
+        time.sleep(1)
+
+def stop_alarm():
+    window.quit()
+
+label = Label(window, text="Set Alarm (HH:MM):")
+label.pack()
+
+entry = Entry(window)
+entry.pack()
+
+set_button = Button(window, text="Set", command=set_alarm)
+set_button.pack()
+
+stop_button = Button(window, text="Stop", command=stop_alarm)
+stop_button.pack()
+
+window.mainloop()
+
+from tkinter import *
+from tkinter import messagebox
+import datetime
+import time
+
+def set_alarm():
+    alarm_time = entry.get()
+    try:
+        datetime.datetime.strptime(alarm_time, "%H:%M")
+    except ValueError:
+        messagebox.showerror("Error", "Invalid time format! Please use HH:MM format.")
+        return
+    
+    while True:
+        current_time = time.strftime("%H:%M")
+        if current_time == alarm_time:
+            messagebox.showinfo("Alarm", "Wake up!")
+            break
+        window.update()
+        time.sleep(1)
+
+def stop_alarm():
+    window.quit()
+
+window = Tk()
+window.title("Alarm Clock")
+
+label = Label(window, text="Set Alarm (HH:MM):")
+label.pack()
+
+entry = Entry(window)
+entry.pack()
+
+set_button = Button(window, text="Set", command=set_alarm)
+set_button.pack()
+
+stop_button = Button(window, text="Stop", command=stop_alarm)
+stop_button.pack()
+
+window.mainloop()
